@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var breedLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
+
+    var myTigers:[Tiger] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,7 @@ class ViewController: UIViewController {
         myTiger.breed = "Bengal"
         myTiger.age = 3
         myTiger.image = UIImage(named: "BengalTiger.jpg")
+        myTigers.append(myTiger)
         
         println("My Tiger's name is: \(myTiger.name), it's age is \(myTiger.age), its' breed is \(myTiger.breed), and the image is \(myTiger.image)")
         
@@ -48,13 +51,27 @@ class ViewController: UIViewController {
         fourthTiger.breed = "Siberian Tiger"
         fourthTiger.age = 5
         fourthTiger.image = UIImage(named:"SiberianTiger.jpg")
+        
+        myTigers += [secondTiger, thirdTiger, fourthTiger]
     }
 
+    @IBAction func nextBarButtonItemPressed(sender: UIBarButtonItem)
+    {
+        let randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
+        
+        let tiger = myTigers[randomIndex]
+        
+        myImageView.image = tiger.image
+        nameLabel.text = tiger.name
+        ageLabel.text = "\(tiger.age)"
+        breedLabel.text = tiger.breed
+        
+        println("\(myTigers)")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+
     }
-
-
 }
-

@@ -29,7 +29,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Imx-fq-LnT"/>
-                                    <barButtonItem title="Item" id="WWD-QA-VaX"/>
+                                    <barButtonItem title="Item" id="WWD-QA-VaX">
+                                        <connections>
+                                            <action selector="nextBarButtonItemPressed:" destination="BYZ-38-t0r" id="1ld-Ec-exm"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="712" width="400" height="44"/>
